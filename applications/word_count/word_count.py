@@ -1,5 +1,22 @@
+import re
+
 def word_count(s):
-    # Your code here
+    output = {}
+    words = s.split()
+
+    if words == ['']:
+        return {}
+    
+    for word in words:
+        word = re.sub(r"[\"\&\.\:\;\,\-\+\=\/\\\[\]\{\}\(\)\*\^\&\|\s]", '', word.lower())
+        if word == '':
+            continue
+        else:
+            if word in output:
+                output[word] += 1
+            else:
+                output[word] = 1
+    return output
 
 
 

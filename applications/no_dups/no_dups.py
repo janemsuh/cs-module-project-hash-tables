@@ -1,6 +1,22 @@
 def no_dups(s):
-    # Your code here
+    if len(s) < 1:
+        return ''
+    
+    dictionary = dict()
 
+    words = s.split(' ')
+
+    output = words[0]
+    dictionary[output] = True
+
+    for word in words[1:]:
+        if dictionary.get(word):
+            continue
+        else:
+            output += ' ' + word
+            dictionary[word] = True
+    
+    return output
 
 
 if __name__ == "__main__":
